@@ -123,6 +123,7 @@ These two contracts are agreed at kickoff. Changing either one means telling eve
 | `name` | Display name |
 | `type` | One of `landing`, `ice`, `rover`, `crater`, `landmark` |
 | `description` | One or two sentences for the popup |
+| `scienceReason` | Why this place serves the mission science goal |
 | `survivalNote` | Why this place matters for astronauts |
 | `source` | Where the fact came from |
 
@@ -130,8 +131,16 @@ These two contracts are agreed at kickoff. Changing either one means telling eve
 
 | Property | Meaning |
 | --- | --- |
-| `type` | One of `steep`, `dune`, `rough` |
+| `type` | One of `steep`, `dune`, `rough`, `rock` |
 | `maxSlopeDeg` | Highest slope inside the polygon, in degrees |
+
+`steep` and `rock` polygons are blocked cells in the router. `dune` and `rough` add cost.
+
+**`data/pov_images.json`** — one entry per stop:
+
+```json
+{ "Stop name": { "imageUrl": "https://...", "credit": "NASA/JPL-Caltech", "note": "What the astronaut will see" } }
+```
 
 ### 2. Route function (Maheen → Ayesha, Maya, Arbish)
 
@@ -145,24 +154,37 @@ Inputs:
 ```js
 start = { lat: 18.44, lon: 77.45 }
 end   = { lat: 18.40, lon: 77.60 }
-options = { maxSlopeDeg: 20, walkSpeedKmh: 3, o2LimitMinutes: 240 }  // all optional
+options = {
+  waypoints: [ { lat: 18.42, lon: 77.50, name: "Stop 1" } ],  // optional science stops, visited in order
+  maxSlopeDeg: 20,       // before load factor
+  loadFactor: 0.8,       // 1 = no load; lower = suit and equipment slow and limit the astronaut
+  walkSpeedKmh: 3,
+  o2LimitMinutes: 240
+}  // all optional
 ```
 
 Output:
 
 ```js
 {
-  path: [ { lat, lon, elevM }, ... ],   // ordered points from start to end
+  path: [ { lat, lon, elevM }, ... ],   // ordered points from start through stops to end
   distanceKm: 12.4,
   walkMinutes: 248,
   maxSlopeDeg: 14.2,
   riskScore: 37,                        // 0 safe to 100 dangerous
   o2UsedPct: 103,                       // walk time divided by o2LimitMinutes
-  hazardsCrossed: [ "steep", "rough" ]  // hazard types the path touches
+  hazardsCrossed: [ "steep", "rough" ],
+  legs: [                               // one entry per leg; a single leg when there are no waypoints
+    { from: "Start", to: "Stop 1", distanceKm: 5.1, walkMinutes: 102, maxSlopeDeg: 11.0, riskScore: 30 }
+  ]
 }
 ```
 
-Returns `null` if start or end is outside the grid, or if no route exists under `maxSlopeDeg`. The UI shows "No safe route found" in that case.
+Effective slope limit is `maxSlopeDeg * loadFactor`, and effective walking speed is `walkSpeedKmh * loadFactor`.
+
+Returns `null` if any point is outside the grid, or if any leg has no route under the slope limit. The UI shows "No safe route found" and names the leg that failed.
+
+Build order for Maheen: single leg first, waypoints second. Ayesha and Arbish build against the single-leg shape from the start, because `legs` always has at least one entry.
 
 All defaults live in `src/config.js` so they can be changed in one place. The walking speed and oxygen limit are assumptions for the demo, not mission data. The app and the project description must say that.
 
@@ -184,6 +206,7 @@ A downsampled grid of about 200 x 200 cells keeps search fast enough to run in t
 {
   data: { elevation, poi, hazards, ice },   // set once by dataLoader
   start: null | { lat, lon },
+  waypoints: [],                            // science stops, in visit order
   end: null | { lat, lon },
   route: null | RouteResult,
   routeError: null | string,
@@ -197,7 +220,7 @@ Components subscribe to the parts they need. Only these writers are allowed:
 | Field | Written by |
 | --- | --- |
 | `data` | `dataLoader.js` |
-| `start`, `end` | `MapView.jsx` |
+| `start`, `waypoints`, `end` | `MapView.jsx` (and `PoiLayer.jsx` for "Add as stop") |
 | `route`, `routeError` | `integration.js` |
 | `visibleLayers` | `LayerToggles.jsx` |
 | `selectedPoi` | `PoiLayer.jsx` |

@@ -9,15 +9,29 @@ Mars Navigator is a web map where an astronaut picks a start and an end point on
 
 ---
 
+## Mission science goal (fill in on the kickoff call)
+
+The official challenge asks for a map a Mars astronaut could use on a Marswalk, with a route that serves **scientific objectives** while avoiding obstacles and keeping the crew safe.
+
+- **Study area:** Jezero Crater, about 18-19°N, 77-78°E
+- **Science goal:** _team decides on the kickoff call, one sentence_
+- **Stops:** 2 to 4 sites that serve that goal, each with a one-line reason
+
+Every point of interest and every route stop must tie back to this goal.
+
+---
+
 ## Demo flow (build this first)
 
-1. Open the map on the study area (default: Jezero Crater).
-2. Toggle layers: terrain, slope hazards, points of interest, subsurface ice.
-3. Click a start point, then an end point.
-4. The app draws the safest route and fills the route panel.
-5. Click any point of interest to see why it matters for survival.
+1. Open the map on the study area (Jezero Crater).
+2. Toggle layers. Each toggle shows its data type: topographic, optical imagery, geophysical (ice), plus any bonus layer.
+3. Click a start point, one or more science stops, then an end point.
+4. The app draws the safest route through the stops and fills the route panel with distance, time, risk and oxygen per leg.
+5. Click any stop to see why it matters for the science goal, and a point-of-view photo of what the astronaut will see on arrival.
 
 If a task does not help this flow, it waits until the flow works end to end.
+
+Official challenge notes we are following: at least three kinds of data layered together, safety first, suit mobility and carried equipment considered, route avoids large rock formations, point-of-view images suggested.
 
 ---
 
@@ -46,9 +60,9 @@ Folder: `src/routing/`
 
 | File | What to do |
 | --- | --- |
-| `src/routing/costGrid.js` | Load `data/elevation_grid.json`. Compute slope in degrees per cell. Turn slope and hazard polygons into a cost per cell (steeper = costlier, above `MAX_SAFE_SLOPE_DEG` = blocked). |
+| `src/routing/costGrid.js` | Load `data/elevation_grid.json`. Compute slope in degrees per cell. Turn slope and hazard polygons into a cost per cell (steeper = costlier). Cells above the slope limit, or inside `steep` or `rock` hazard polygons, are blocked. The slope limit is lowered by `loadFactor` to model a suited astronaut carrying equipment. |
 | `src/routing/astar.js` | A* search over the cost grid. Eight-direction movement. Return the cell path or `null` if no route exists. |
-| `src/routing/findRoute.js` | Public function the map calls. Converts lat/lon to cells, runs A*, converts back, and builds the result object (see the contract in ARCHITECTURE.md). |
+| `src/routing/findRoute.js` | Public function the map calls. Converts lat/lon to cells, runs A*, converts back, and builds the result object (see the contract in ARCHITECTURE.md). **Step 1:** single leg start to end. **Step 2:** accept `waypoints` and chain one A* run per leg, returning the combined path plus per-leg numbers. |
 | `src/routing/terrainScore.js` | **Optional, only after the demo flow works.** Small classifier that scores each cell as safe, risky or avoid and feeds `costGrid.js`. If it is not ready by Sun 1 PM, delete the import and ship slope-only routing. |
 | `tests/routing.test.js` | Co-owned with Arbish. Test a flat grid, a grid with a wall, and a start that is inside a blocked cell. |
 
@@ -61,9 +75,9 @@ Folder: `src/map/` and `src/App.jsx`
 | File | What to do |
 | --- | --- |
 | `src/App.jsx` | Page layout: map on the left, route panel (Maya) on the right, layer toggles on top. |
-| `src/map/MapView.jsx` | Leaflet or MapLibre map. Load Mars base tiles from `src/config.js`. Handle click to set start, then click to set end. |
-| `src/map/layers.js` | Layer definitions and toggle logic: terrain, hazards, points of interest, ice. |
-| `src/map/PoiLayer.jsx` | Draw points of interest from `data/poi.geojson` with icons and a popup showing `description` and `survivalNote`. |
+| `src/map/MapView.jsx` | Leaflet or MapLibre map. Load Mars base tiles from `src/config.js`. Handle click to set start, then science stops, then end. Let the user remove a stop. |
+| `src/map/layers.js` | Layer definitions and toggle logic: terrain, hazards, points of interest, ice. Each layer carries a `dataType` label (topographic, optical, geophysical, ...) that the toggle shows. |
+| `src/map/PoiLayer.jsx` | Draw points of interest from `data/poi.geojson` with icons. Popup shows `description`, `scienceReason` and the point-of-view photo (see `data/pov_images.json`). Button "Add as stop". |
 | `src/map/HazardLayer.jsx` | Draw `data/hazards.geojson` polygons, coloured by `type`. |
 | `src/map/RouteLayer.jsx` | Draw the route returned by `findRoute`, mark start and end, and highlight any hazards crossed. |
 
@@ -74,8 +88,9 @@ Folder: `data/`
 | File | What to do |
 | --- | --- |
 | `data/elevation_grid.json` | Elevation for the study area from NASA Mars Trek or another open NASA/USGS source, downsampled to about 200 x 200 cells. Format is in ARCHITECTURE.md. |
-| `data/poi.geojson` | 15 to 20 points of interest with `name`, `type`, `description`, `survivalNote`, `source`. |
-| `data/hazards.geojson` | Polygons for steep slopes, dunes and rough terrain, with `type` and `maxSlopeDeg`. |
+| `data/poi.geojson` | 15 to 20 points of interest with `name`, `type`, `description`, `scienceReason`, `survivalNote`, `source`. `scienceReason` ties the site to the mission science goal. |
+| `data/hazards.geojson` | Polygons for steep slopes, dunes, rough terrain and large rock fields, with `type` and `maxSlopeDeg`. Use whatever open obstacle data you can find; mark anything estimated by hand as such in `sources.md`. |
+| `data/pov_images.json` | For each stop, one point-of-view image URL and credit line from NASA's Mars rover image galleries (for example the Perseverance raw images). Check each link opens before committing. |
 | `data/ice.geojson` | Subsurface ice layer, or a link to the tile layer if it is served as tiles. |
 | `data/sources.md` | Every dataset: name, URL, date accessed, licence or credit line. Needed for the submission. |
 | `src/config.js` (tile section only) | Confirm the working Mars Trek tile URLs and write them into the `TILE_LAYERS` object. Check them in a browser before you commit. |
@@ -87,7 +102,8 @@ Folder: `src/components/` and `src/styles/`
 | File | What to do |
 | --- | --- |
 | `src/styles/theme.css` | Colours, fonts, spacing. Dark theme that reads clearly over the map. |
-| `src/components/RoutePanel.jsx` | Shows distance, walking time, max slope, risk score, oxygen used. Empty state tells the user to click a start point. |
+| `src/components/RoutePanel.jsx` | Shows distance, walking time, max slope, risk score and oxygen used, per leg and in total. Empty state tells the user to click a start point. |
+| `src/components/PovPanel.jsx` | Shows the point-of-view photo and credit for the selected stop, so the astronaut knows what to expect on arrival. |
 | `src/components/ElevationChart.jsx` | Line chart of elevation along the route. Hovering a point highlights it on the map. |
 | `src/components/Legend.jsx` | Legend for hazard colours and point-of-interest icons. |
 | `src/components/LayerToggles.jsx` | The toggle buttons that Ayesha's `layers.js` controls. |
@@ -140,5 +156,4 @@ Submission deadline per a third-party source is Sun Nov 15, 11:59 PM local time.
 
 ## Credits
 
-Mars imagery, elevation and ice data: NASA and partner space agencies, via Mars Trek and other open sources. Full list in `data/sources.md`."# Martian-map" 
-"# Martian map" 
+Mars imagery, elevation and ice data: NASA and partner space agencies, via Mars Trek and other open sources. Full list in `data/sources.md`.
