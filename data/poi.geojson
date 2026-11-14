@@ -18,6 +18,33 @@
         "why": "A 45 km crater that once held a lake, so it is a place to look for evidence of past water."
       },
       "geometry": { "type": "Point", "coordinates": [77.58, 18.38] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Waypoint 1",
+        "type": "waypoint",
+        "why": "Candidate stop inside Jezero Crater, a few kilometers east of the landing site. Rename once the feature is identified."
+      },
+      "geometry": { "type": "Point", "coordinates": [77.49, 18.43] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Waypoint 2",
+        "type": "waypoint",
+        "why": "Candidate stop in the north-eastern part of Jezero Crater. Rename once the feature is identified."
+      },
+      "geometry": { "type": "Point", "coordinates": [77.56, 18.53] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Waypoint 3",
+        "type": "waypoint",
+        "why": "Candidate stop in the north-eastern part of Jezero Crater. Rename once the feature is identified."
+      },
+      "geometry": { "type": "Point", "coordinates": [77.54, 18.57] }
     }
   ]
 }
