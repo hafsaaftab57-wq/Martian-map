@@ -182,7 +182,13 @@ Output:
 
 Effective slope limit is `maxSlopeDeg * loadFactor`, and effective walking speed is `walkSpeedKmh * loadFactor`.
 
-Returns `null` if any point is outside the grid, or if any leg has no route under the slope limit. The UI shows "No safe route found" and names the leg that failed.
+Returns `null` if any point is outside the grid, or if any leg has no route under the slope limit. After a `null`, call `getLastRouteError()` for a plain-English reason (for example "No safe route from Stop 1 to End.") and show it in the UI. `integration.js` writes it to `routeError`.
+
+Setup: Arbish's `dataLoader.js` calls `initRouting(elevationData, hazardsGeoJson)` once after the data files load, before any call to `findRoute`. Until then `findRoute` returns `null`.
+
+```js
+import { initRouting, findRoute, getLastRouteError } from './routing/findRoute.js';
+```
 
 Build order for Maheen: single leg first, waypoints second. Ayesha and Arbish build against the single-leg shape from the start, because `legs` always has at least one entry.
 
