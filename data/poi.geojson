@@ -1,0 +1,23 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Octavia E. Butler Landing",
+        "type": "landing site",
+        "why": "Where Perseverance touched down in February 2021; a proven safe landing area and a fixed reference point for planning routes."
+      },
+      "geometry": { "type": "Point", "coordinates": [77.4508, 18.4447] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Jezero Crater (approximate center)",
+        "type": "region",
+        "why": "A 45 km crater that once held a lake, so it is a place to look for evidence of past water."
+      },
+      "geometry": { "type": "Point", "coordinates": [77.58, 18.38] }
+    }
+  ]
+}
