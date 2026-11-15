@@ -1,3 +1,4 @@
+
 {
   "type": "FeatureCollection",
   "features": [
@@ -5,10 +6,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.4508,
-          18.4447
-        ]
+        "coordinates": [77.4508, 18.4447]
       },
       "properties": {
         "id": "octavia_e_butler_landing",
@@ -18,8 +16,8 @@
         "description": "Landing area of NASA's Perseverance rover in Jezero Crater.",
         "scienceReason": "Provides the mission's reference location for exploring the crater floor, delta deposits and ancient lake environments.",
         "why": "Useful as the starting point for the Jezero exploration map and route-planning demonstrations.",
-        "survivalNote": "Use local elevation and slope data; avoid assuming the landing ellipse is uniformly smooth.",
-        "source": "NASA Mars 2020 mission; coordinates used in project POI dataset.",
+        "survivalNote": "Use local elevation and slope data; do not assume the landing area is uniformly smooth.",
+        "source": "NASA Mars 2020 mission; project coordinate.",
         "coordinateQuality": "project_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -28,19 +26,16 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.42524624,
-          18.42416332
-        ]
+        "coordinates": [77.42524624, 18.42416332]
       },
       "properties": {
         "id": "perseverance_delta_waypoint",
         "name": "Perseverance Delta Exploration Waypoint",
         "type": "rover",
         "category": "waypoint",
-        "description": "A project waypoint representing Perseverance's exploration area near the western delta of Jezero Crater.",
+        "description": "Project waypoint representing Perseverance's exploration area near the western delta of Jezero Crater.",
         "scienceReason": "The delta preserves sediment deposited where an ancient river entered a crater lake.",
-        "why": "Useful for highlighting the geological record of water transport and deposition.",
+        "why": "Highlights the geological record of water transport and sediment deposition.",
         "survivalNote": "Delta terrain can include scarps, layered outcrops and loose sediment; inspect slope and imagery before routing.",
         "source": "NASA Mars 2020 Jezero mission context; project waypoint coordinate.",
         "coordinateQuality": "project_coordinate",
@@ -51,10 +46,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.38,
-          18.48
-        ]
+        "coordinates": [77.38, 18.48]
       },
       "properties": {
         "id": "belva_crater",
@@ -62,10 +54,10 @@
         "type": "crater",
         "category": "region",
         "description": "Impact crater feature identified in the team's Jezero-area map review.",
-        "scienceReason": "Crater interiors and ejecta can expose or redistribute geological materials, making them useful context for terrain interpretation.",
+        "scienceReason": "Crater interiors and ejecta can expose or redistribute geological materials, useful context for terrain interpretation.",
         "why": "Adds a recognizable landform for map orientation and terrain-risk discussion.",
-        "survivalNote": "Crater rims and interior slopes may be steep; do not route across the rim without slope checks.",
-        "source": "Team map coordinate; feature interpretation should be checked against orbital imagery.",
+        "survivalNote": "Crater rims and interiors may be steep; coordinate is a team map reading and needs orbital-image verification.",
+        "source": "Team map coordinate; verify feature identity and position against orbital imagery.",
         "coordinateQuality": "map_reading",
         "routingNote": "inside_current_grid"
       }
@@ -74,10 +66,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.72,
-          18.53
-        ]
+        "coordinates": [77.72, 18.53]
       },
       "properties": {
         "id": "hartwell_crater",
@@ -86,9 +75,9 @@
         "category": "region",
         "description": "Impact crater feature identified during the team's Jezero-area map review.",
         "scienceReason": "Impact structures provide local relief and can expose subsurface materials.",
-        "why": "Useful as a terrain landmark and a candidate area for comparing crater-related hazards.",
+        "why": "Useful as a terrain landmark and candidate area for comparing crater-related hazards.",
         "survivalNote": "Treat rim slopes and ejecta blocks as potential obstacles; coordinate is a map reading.",
-        "source": "Team map coordinate; verify against USGS Gazetteer/orbital imagery before operational use.",
+        "source": "Team map coordinate; verify against USGS Gazetteer and orbital imagery before operational use.",
         "coordinateQuality": "map_reading",
         "routingNote": "inside_current_grid"
       }
@@ -97,22 +86,19 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.2,
-          18.55
-        ]
+        "coordinates": [77.2, 18.55]
       },
       "properties": {
         "id": "neretva_vallis",
         "name": "Neretva Vallis",
         "type": "landmark",
         "category": "region",
-        "description": "One of the inlet valleys that fed the ancient Jezero lake and its western delta.",
+        "description": "Named inlet valley in the Jezero region.",
         "scienceReason": "Fluvial landforms and the associated delta record past water flow and sediment transport into Jezero.",
         "why": "Important for reconstructing the ancient drainage and lake system.",
-        "survivalNote": "Valley walls and channel margins may be uneven or steep; this point is a regional marker, not a safe path.",
-        "source": "USGS planetary nomenclature; Jezero lake-system studies including https://doi.org/10.1029/2024JE008862.",
-        "coordinateQuality": "approximate_map_coordinate",
+        "survivalNote": "Valley walls and channel margins may be uneven or steep; regional science marker, not a safe path.",
+        "source": "USGS Gazetteer Feature 15879: https://planetarynames.wr.usgs.gov/Feature/15879.",
+        "coordinateQuality": "official_usgs_centre",
         "routingNote": "inside_current_grid"
       }
     },
@@ -120,56 +106,48 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.07,
-          18.29
-        ]
+        "coordinates": [77.07, 18.29]
       },
       "properties": {
         "id": "una_vallis",
         "name": "Una Vallis",
         "type": "landmark",
         "category": "region",
-        "description": "A valley name recorded from the team's Mars map review; exact feature identity and position need confirmation.",
-        "scienceReason": "If confirmed as a fluvial feature, it may help describe regional drainage and landscape evolution.",
-        "why": "Retain as a provisional map point pending confirmation from the official gazetteer or mapped imagery.",
-        "survivalNote": "Do not use as a routing destination until the feature and coordinate are verified.",
-        "source": "Team map reading; official feature record not yet confirmed.",
-        "coordinateQuality": "unverified_map_reading",
-        "routingNote": "exclude_until_verified"
+        "description": "Officially named valley in the broader Jezero study area.",
+        "scienceReason": "Provides a mapped example of Martian valley morphology and regional drainage.",
+        "why": "Useful as a geographic and geomorphic reference point.",
+        "survivalNote": "Do not route along the valley based on this centre point; inspect local slopes and terrain.",
+        "source": "USGS Gazetteer Feature 15878: https://planetarynames.wr.usgs.gov/Feature/15878.",
+        "coordinateQuality": "official_usgs_centre",
+        "routingNote": "inside_current_grid"
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.48,
-          18.85
-        ]
+        "coordinates": [77.13, 19.09]
       },
       "properties": {
         "id": "sava_vallis",
         "name": "Sava Vallis",
         "type": "landmark",
         "category": "region",
-        "description": "One of the inlet valleys associated with the ancient Jezero lake and its eastern/western drainage system.",
-        "scienceReason": "Together with Neretva Vallis, it is evidence for water entering Jezero and building its delta deposits.",
-        "why": "Important for understanding the crater's ancient hydrology.",
-        "survivalNote": "Channel margins and valley walls may be steep; this is a regional science marker, not a traversable waypoint.",
-        "source": "USGS planetary nomenclature; https://doi.org/10.1029/2024JE008862.",
-        "coordinateQuality": "approximate_map_coordinate",
-        "routingNote": "outside_current_grid"
+        "description": "Officially named valley in the broader Jezero region. The supplied map point [77.48, 18.85] is retained as a separate map reference, not the official centre.",
+        "scienceReason": "Provides regional context for Martian valley networks and the hydrologic history around Jezero.",
+        "why": "Useful for regional science context, but its official centre is outside the current elevation grid.",
+        "survivalNote": "Valley margins may be steep or rough; this is a regional centre point, not a traversable waypoint.",
+        "source": "USGS Gazetteer Feature 15904: https://planetarynames.wr.usgs.gov/Feature/15904.",
+        "coordinateQuality": "official_usgs_centre",
+        "routingNote": "outside_current_grid",
+        "mapReferenceCoordinate": [77.48, 18.85]
       }
     },
     {
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.45165,
-          18.42769
-        ]
+        "coordinates": [77.45165, 18.42769]
       },
       "properties": {
         "id": "roubion_sample_site",
@@ -177,10 +155,10 @@
         "type": "rover",
         "category": "past rover",
         "description": "Perseverance's Roubion crater-floor sampling locality in the Máaz formation; the attempted core disaggregated during sampling.",
-        "scienceReason": "The site provides evidence about basaltic igneous rocks on the Jezero crater floor and the diversity of the Máaz formation.",
+        "scienceReason": "The site documents basaltic igneous rocks on the Jezero crater floor and the diversity of the Máaz formation.",
         "why": "A published rover sampling location with a peer-reviewed coordinate.",
         "survivalNote": "Rock fragments and uneven outcrop surfaces may impede travel; inspect high-resolution imagery and slope data.",
-        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474",
+        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474.",
         "coordinateQuality": "published_rover_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -189,10 +167,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.44437,
-          18.43074
-        ]
+        "coordinates": [77.44437, 18.43074]
       },
       "properties": {
         "id": "rochette_sample_site",
@@ -201,9 +176,9 @@
         "category": "past rover",
         "description": "Perseverance collected the Montdenier and Montagnac basalt cores at the Rochette outcrop.",
         "scienceReason": "The basalt samples help characterize the igneous history and alteration of Jezero's crater-floor rocks.",
-        "why": "A published sample site useful for showing where rover science directly investigated crater-floor bedrock.",
+        "why": "A published sample site showing where rover science directly investigated crater-floor bedrock.",
         "survivalNote": "Outcrop relief and scattered rocks can create local obstacles; use terrain layers before routing.",
-        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474",
+        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474.",
         "coordinateQuality": "published_rover_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -212,10 +187,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.44301,
-          18.43397
-        ]
+        "coordinates": [77.44301, 18.43397]
       },
       "properties": {
         "id": "brac_sample_site",
@@ -224,9 +196,9 @@
         "category": "past rover",
         "description": "Perseverance collected the Salette and Coulettes cores from the Brac outcrop in the Séítah formation.",
         "scienceReason": "The samples are ultramafic cumulate rocks, providing evidence about the igneous composition and evolution of the crater floor.",
-        "why": "A peer-reviewed sampling location representing the Séítah geological unit.",
+        "why": "A peer-reviewed sampling locality representing the Séítah geological unit.",
         "survivalNote": "Layered and fractured outcrops may be rough; avoid steep or block-rich surfaces.",
-        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474",
+        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474.",
         "coordinateQuality": "published_rover_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -235,10 +207,7 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.44133,
-          18.43264
-        ]
+        "coordinates": [77.44133, 18.43264]
       },
       "properties": {
         "id": "issole_sample_site",
@@ -249,7 +218,7 @@
         "scienceReason": "The ultramafic samples help constrain the composition of the Séítah unit and its relationship to adjacent crater-floor materials.",
         "why": "Useful for illustrating geological contacts and rover sampling strategy.",
         "survivalNote": "Contact zones may have variable rock texture and relief; inspect local slope and imagery.",
-        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474",
+        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474.",
         "coordinateQuality": "published_rover_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -258,21 +227,18 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.45242,
-          18.44386
-        ]
+        "coordinates": [77.45242, 18.44386]
       },
       "properties": {
         "id": "sid_sample_site",
         "name": "Sid Sample Site",
         "type": "rover",
         "category": "past rover",
-        "description": "Perseverance collected the Hahonih and Atsah cores at the Sid outcrop in the Máaz formation.",
-        "scienceReason": "The samples are described as andesitic igneous rocks and contribute to understanding the diversity of Jezero's crater-floor lithologies.",
+        "description": "Perseverance collected the Hahonih and Atsah cores at the Sid outcrop in the Ch'ał member of the Máaz formation.",
+        "scienceReason": "The samples are andesitic igneous rocks and contribute to understanding the diversity of Jezero's crater-floor lithologies.",
         "why": "A published rover sampling locality with direct scientific value.",
         "survivalNote": "Rocky outcrops and loose surface material may complicate traversal; confirm the local hazard grid.",
-        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474",
+        "source": "Simon et al. (2023), JGR: Planets, https://doi.org/10.1029/2022JE007474.",
         "coordinateQuality": "published_rover_coordinate",
         "routingNote": "inside_current_grid"
       }
@@ -281,22 +247,79 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.4082,
-          18.4528
-        ]
+        "coordinates": [77.4082, 18.4528]
       },
       "properties": {
         "id": "three_forks_sample_depot",
         "name": "Three Forks Sample Depot",
         "type": "landmark",
         "category": "sample depot",
-        "description": "Perseverance's backup sample depot, where ten sample tubes were placed on the surface in a mapped zigzag pattern near the base of the ancient delta.",
-        "scienceReason": "The depot preserves a carefully documented collection of samples representing Jezero's geological history and is a key target for future sample-retrieval planning.",
+        "description": "Approximate map placement for Perseverance's backup depot, where ten sample tubes were deposited in a mapped zigzag pattern near the base of the ancient delta.",
+        "scienceReason": "The depot preserves a documented backup collection of samples from Jezero's geological environments.",
         "why": "A major mission landmark and scientifically important sample cache.",
-        "survivalNote": "NASA describes the depot ground as relatively flat, but local rocks, dust and approach conditions still require terrain checks.",
-        "source": "NASA/JPL-Caltech, https://science.nasa.gov/resource/perseverances-three-forks-sample-depot-map/; approximate map-derived centre, not an individual tube coordinate.",
+        "survivalNote": "NASA describes the depot ground as relatively flat, but local rocks, dust and approach conditions still require terrain checks. Do not use this approximate centre for precision navigation.",
+        "source": "NASA/JPL-Caltech sample depot map: https://science.nasa.gov/resource/perseverances-three-forks-sample-depot-map/; coordinate is approximate, not an individual tube coordinate.",
         "coordinateQuality": "approximate_map_coordinate",
+        "routingNote": "exclude_until_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.4, 18.452]
+      },
+      "properties": {
+        "id": "amalik_outcrop",
+        "name": "Amalik Outcrop",
+        "type": "landmark",
+        "category": "geological outcrop",
+        "description": "Approximate map placement for the Amalik outcrop, a Perseverance sampling locality on the Jezero fan front.",
+        "scienceReason": "Perseverance collected the sedimentary samples Shuyak and Mageik here. Fine-grained, clay-bearing sedimentary rocks are relevant to evaluating ancient aqueous environments and possible biosignature preservation.",
+        "why": "A scientifically significant sedimentary sampling locality; exact coordinate needs rover traverse or image-based verification.",
+        "survivalNote": "Outcrop surfaces may be layered, fractured or locally steep; do not treat this approximate point as a safe waypoint.",
+        "source": "NASA Amalik sampling report: https://science.nasa.gov/blog/perseverance-activities-at-amalik-outcrop/; AGU study https://doi.org/10.1029/2024AV001241; coordinate approximate.",
+        "coordinateQuality": "approximate_map_coordinate",
+        "routingNote": "exclude_until_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.406, 18.459]
+      },
+      "properties": {
+        "id": "wildcat_ridge",
+        "name": "Wildcat Ridge",
+        "type": "rover",
+        "category": "past rover",
+        "description": "Approximate map placement for the Wildcat Ridge outcrop in the Hogwallow Flats member of the Shenandoah formation.",
+        "scienceReason": "Perseverance collected the sedimentary samples Hazeltop and Bearwallow here; these rocks are important for studying delta-front deposits and potential biosignature preservation.",
+        "why": "A scientifically significant sedimentary sampling locality; exact coordinate needs rover traverse or image-based verification.",
+        "survivalNote": "Layered sedimentary outcrops can have uneven surfaces and local scarps; verify exact rover coordinates before routing.",
+        "source": "AGU study: https://doi.org/10.1029/2024AV001241; Shenandoah Formation study https://doi.org/10.1029/2023JE008187; coordinate approximate.",
+        "coordinateQuality": "approximate_map_coordinate",
+        "routingNote": "exclude_until_verified"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [77.18, 18.13]
+      },
+      "properties": {
+        "id": "marysville_crater",
+        "name": "Marysville Crater",
+        "type": "crater",
+        "category": "region",
+        "description": "IAU-adopted impact crater in the broader Jezero study region.",
+        "scienceReason": "Impact craters provide stratigraphic context and can expose or redistribute subsurface materials.",
+        "why": "Officially named crater; the user's map reading [77.17, 18.13] is close to the USGS centre.",
+        "survivalNote": "Crater rims and ejecta can be rough or steep. The official centre is inside the current grid bounds, but this does not establish safe traversability.",
+        "source": "USGS Gazetteer Feature 15874: https://planetarynames.wr.usgs.gov/Feature/15874.",
+        "coordinateQuality": "official_usgs_centre",
         "routingNote": "inside_current_grid"
       }
     },
@@ -304,90 +327,18 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          77.4,
-          18.452
-        ]
-      },
-      "properties": {
-        "id": "amalik_outcrop",
-        "name": "Amalik Outcrop",
-        "type": "landmark",
-        "category": "geological outcrop",
-        "description": "A named Perseverance investigation area associated with the western delta exploration; coordinate here is an approximate map placement.",
-        "scienceReason": "Outcrops in the delta region preserve sedimentary materials that can help reconstruct water flow, deposition and possible habitability.",
-        "why": "A useful science-interest marker, but its coordinate should be replaced with a rover traverse or image-derived position before routing.",
-        "survivalNote": "Outcrop surfaces may be layered, fractured or locally steep; do not treat this approximate point as a safe waypoint.",
-        "source": "Perseverance delta campaign literature; approximate coordinate requires verification against rover traverse data.",
-        "coordinateQuality": "approximate_map_coordinate",
-        "routingNote": "exclude_until_verified"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          77.406,
-          18.459
-        ]
-      },
-      "properties": {
-        "id": "wildcat_ridge",
-        "name": "Wildcat Ridge",
-        "type": "rover",
-        "category": "past rover",
-        "description": "Perseverance investigated the Wildcat Ridge outcrop in the Shenandoah formation and collected the Hazeltop and Bearwallow samples.",
-        "scienceReason": "The sedimentary rocks are important for studying delta-related deposits and the preservation of possible biosignature-relevant materials.",
-        "why": "A scientifically significant sedimentary sampling locality; the coordinate here is only an approximate map placement.",
-        "survivalNote": "Layered sedimentary outcrops can have uneven surfaces and local scarps; verify exact rover coordinates before routing.",
-        "source": "NASA Mars 2020 sample inventory; https://ntrs.nasa.gov/api/citations/20230000371/downloads/Herd_M2020_LPSC23_RSS_overview_final.pdf; approximate map placement.",
-        "coordinateQuality": "approximate_map_coordinate",
-        "routingNote": "exclude_until_verified"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          77.18,
-          18.13
-        ]
-      },
-      "properties": {
-        "id": "marysville_crater",
-        "name": "Marysville Crater",
-        "type": "crater",
-        "category": "region",
-        "description": "An IAU-adopted impact crater in the broader Jezero study-region map extent.",
-        "scienceReason": "Impact craters provide stratigraphic context and can expose materials from beneath the surface.",
-        "why": "Officially named crater; the user's map reading (77.17°E, 18.13°N) is close to the USGS centre (77.18°E, 18.13°N).",
-        "survivalNote": "Crater rims and ejecta can be rough or steep; this site is outside the current elevation grid's southern boundary.",
-        "source": "USGS Gazetteer, Feature 15874: https://planetarynames.wr.usgs.gov/Feature/15874.",
-        "coordinateQuality": "official_usgs_centre",
-        "routingNote": "outside_current_grid"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "Point",
-        "coordinates": [
-          76.95,
-          18.65
-        ]
+        "coordinates": [76.95, 18.65]
       },
       "properties": {
         "id": "angelica_crater",
         "name": "Angelica Crater",
         "type": "crater",
         "category": "region",
-        "description": "An IAU-adopted impact crater. The user's supplied coordinate (76.75°E, 18.64°N) is west of the official crater boundary.",
+        "description": "IAU-adopted impact crater west of the current elevation grid.",
         "scienceReason": "Impact structures provide geomorphic and stratigraphic context and may expose subsurface materials.",
-        "why": "Official centre is 76.95°E, 18.65°N; the user-provided point is not the crater centre and is retained in the coordinate note only.",
-        "survivalNote": "Crater rim terrain may be steep; this crater is west of the current elevation grid and should not be routed with that grid.",
-        "source": "USGS Gazetteer, Feature 15873: https://planetarynames.wr.usgs.gov/Feature/15873.",
+        "why": "Official centre is 76.95°E, 18.65°N; the user's supplied point [76.75, 18.64] is not the crater centre.",
+        "survivalNote": "Crater rim terrain may be steep; this crater is west of the current elevation grid and cannot be routed with that grid.",
+        "source": "USGS Gazetteer Feature 15873: https://planetarynames.wr.usgs.gov/Feature/15873.",
         "coordinateQuality": "official_usgs_centre",
         "routingNote": "outside_current_grid"
       }
@@ -396,21 +347,18 @@
       "type": "Feature",
       "geometry": {
         "type": "Point",
-        "coordinates": [
-          78.35,
-          18.67
-        ]
+        "coordinates": [78.35, 18.67]
       },
       "properties": {
         "id": "pliva_vallis",
         "name": "Pliva Vallis",
         "type": "landmark",
         "category": "region",
-        "description": "The outlet valley on the eastern rim of Jezero Crater; USGS gives a centre location for the named linear feature.",
-        "scienceReason": "A 2025 study interprets the valley morphology as evidence for episodic lake-overflow events, with multiple incision episodes rather than one steady river.",
-        "why": "Important for reconstructing whether ancient Jezero operated as an open-basin lake and how its water system evolved.",
-        "survivalNote": "Valley walls, bedrock steps, dunes and layered deposits can create substantial hazards. The feature lies outside the current grid's eastern boundary; this point is a regional centre, not a safe route waypoint.",
-        "source": "USGS Gazetteer, Feature 15903: https://planetarynames.wr.usgs.gov/Feature/15903; Le Deit et al. (2025), https://doi.org/10.1029/2024JE008862.",
+        "description": "Officially named valley on the eastern side of the Jezero region; the point is the USGS feature centre, not a point along a safe traverse.",
+        "scienceReason": "Its mapped valley morphology is relevant to reconstructing the regional drainage and lake history around Jezero.",
+        "why": "Important regional geomorphic feature, but the centre lies east of the current elevation grid.",
+        "survivalNote": "Valley walls and channel margins can be steep or rough; do not use the feature centre as a route waypoint.",
+        "source": "USGS Gazetteer Feature 15903: https://planetarynames.wr.usgs.gov/Feature/15903.",
         "coordinateQuality": "official_usgs_centre",
         "routingNote": "outside_current_grid"
       }
