@@ -51,3 +51,5 @@ Do not present simulated terrain as real elevation data or SHARAD radar coverage
 
 Do not describe simulated terrain as real elevation or radar coverage as confirmed ice detection.
 
+Data sources for Mars Navigator. All data from NASA Mars Trek.
+Tiles: NASA Mars Trek WMTS. Accessed 14 Nov 2026. Credit: NASA/JPL, Mars Trek
