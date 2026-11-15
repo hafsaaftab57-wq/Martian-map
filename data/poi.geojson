@@ -1,0 +1,111 @@
+{
+  "type": "FeatureCollection",
+  "name": "Jezero Crater Points of Interest",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "Octavia E. Butler Landing",
+        "type": "landing",
+        "category": "landing site",
+        "description": "Landing location of NASA's Perseverance rover on February 18, 2021.",
+        "scienceReason": "Provides the starting point for exploring Jezero Crater.",
+        "why": "Provides the starting point for exploring Jezero Crater.",
+        "survivalNote": "Use the landing area as the mission's reference location.",
+        "source": "NASA/JPL-Caltech"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.4508, 18.4447]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "Perseverance Delta Exploration Waypoint",
+        "type": "rover",
+        "category": "waypoint",
+        "description": "Recorded Perseverance location during its delta exploration.",
+        "scienceReason": "Represents rover exploration of the Jezero delta.",
+        "why": "Represents rover exploration of the Jezero delta.",
+        "survivalNote": "Use as a reference point for rover exploration.",
+        "source": "NASA Mars 2020 mission"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.42524624, 18.42416332]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "Belva Crater",
+        "type": "crater",
+        "category": "region",
+        "description": "Impact crater observed by the Perseverance rover.",
+        "scienceReason": "Exposes geological layers that help scientists study the history of Jezero.",
+        "why": "Exposes geological layers that help scientists study the history of Jezero.",
+        "survivalNote": "Crater slopes and uneven terrain may make walking difficult.",
+        "source": "NASA/JPL-Caltech; USGS Gazetteer"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.38, 18.48]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 4,
+        "name": "Hartwell Crater",
+        "type": "crater",
+        "category": "region",
+        "description": "Impact crater located in the Jezero region.",
+        "scienceReason": "Provides an additional geological feature for crater exploration.",
+        "why": "Provides an additional geological feature for crater exploration.",
+        "survivalNote": "Inspect crater slopes before selecting a walking route.",
+        "source": "USGS Gazetteer of Planetary Nomenclature"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.72, 18.53]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 5,
+        "name": "Neretva Vallis",
+        "type": "landmark",
+        "category": "region",
+        "description": "Ancient valley channel associated with water flow into Jezero Crater.",
+        "scienceReason": "May preserve evidence of ancient flowing water and sediment deposition.",
+        "why": "May preserve evidence of ancient flowing water and sediment deposition.",
+        "survivalNote": "Uneven channel terrain may complicate walking.",
+        "source": "USGS Gazetteer; NASA"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.20, 18.55]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "name": "Una Vallis",
+        "type": "landmark",
+        "category": "region",
+        "description": "Named valley feature in the Jezero region.",
+        "scienceReason": "Adds a geological landmark for studying Martian surface features.",
+        "why": "Adds a geological landmark for studying Martian surface features.",
+        "survivalNote": "Check local slope and terrain before crossing.",
+        "source": "USGS Gazetteer of Planetary Nomenclature"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.07, 18.29]}
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "name": "Sava Vallis",
+        "type": "landmark",
+        "category": "region",
+        "description": "Valley feature north of Jezero Crater; approximate point based on the NASA map reading.",
+        "scienceReason": "Provides a reference to a regional valley system.",
+        "why": "Provides a reference to a regional valley system.",
+        "survivalNote": "Treat the point as approximate and verify local terrain before routing.",
+        "source": "NASA Perseverance location map; user-read coordinate"
+      },
+      "geometry": {"type": "Point", "coordinates": [77.48, 18.85]}
+    }
+  ]
+}
