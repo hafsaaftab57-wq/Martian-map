@@ -37,6 +37,15 @@ export default function Legend() {
           </li>
         ))}
       </ul>
+        
+      <span className="stat-label">Radar</span>
+      <ul>
+        <li>
+          <span className="swatch swatch-radar" aria-hidden="true" />
+          SHARAD radar coverage
+        </li>
+      </ul>
+      <p className="note">Radar coverage, not an ice detection.</p>
     </div>
   );
 }

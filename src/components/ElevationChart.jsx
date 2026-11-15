@@ -31,7 +31,7 @@ const W = 600, H = 220;
 const PAD = { top: 12, right: 16, bottom: 34, left: 56 };
 
 // Props: path (route.path), onHoverPoint(point | null) so the map can highlight it.
-export default function ElevationChart({ path, onHoverPoint }) {
+export default function ElevationChart({ path, onHoverPoint, simulated }) {
   const [hover, setHover] = useState(null);
   const data = buildProfile(path);
 
@@ -113,6 +113,7 @@ export default function ElevationChart({ path, onHoverPoint }) {
           ? `${h.distKm.toFixed(2)} km · ${Math.round(h.elevM)} m`
           : 'Hover the chart to inspect a point.'}
       </p>
+        {simulated && <p className="note">Simulated terrain</p>}
     </div>
   );
 }

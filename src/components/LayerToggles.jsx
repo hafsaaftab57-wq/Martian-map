@@ -3,7 +3,7 @@ const DEFAULT_LAYERS = [
   { key: 'terrain', label: 'Terrain', dataType: 'topographic' },
   { key: 'hazards', label: 'Slope hazards', dataType: 'derived from elevation' },
   { key: 'poi', label: 'Points of interest', dataType: 'mission sites' },
-  { key: 'ice', label: 'Subsurface ice', dataType: 'geophysical' },
+{ key: 'ice', label: 'SHARAD radar coverage', dataType: 'radar coverage, not an ice detection' },
 ];
 
 // Props:
